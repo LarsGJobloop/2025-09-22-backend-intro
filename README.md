@@ -40,8 +40,13 @@
 
 ### HTTP Clients
 
+There's many alternatives here, doesn't matter really what you pick.
+
 - [Hoppscotch](https://hoppscotch.io/)
 
 > [!NOTE]
 > 
 > You need to add the [Hoppscotch Extension](https://www.google.com/search?q=hoppscotch+extension) to your browser for it to be able to send message to your local server.
+
+- [Client URL (curl)](https://curl.se/)
+- [Postman](https://www.postman.com/)
