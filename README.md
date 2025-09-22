@@ -19,7 +19,9 @@
 - Generate new project
 
   ```sh
+  dotnet new sln
   dotnet new web
+  dotnet sln add <name-of-.csproj>
   ```
 
 - Start the project
