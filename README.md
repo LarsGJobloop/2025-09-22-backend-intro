@@ -37,3 +37,11 @@
 ## References
 
 - [.NET SDK installation](https://dotnet.microsoft.com/en-us/download)
+
+### HTTP Clients
+
+- [Hoppscotch](https://hoppscotch.io/)
+
+> [!NOTE]
+> 
+> You need to add the [Hoppscotch Extension](https://www.google.com/search?q=hoppscotch+extension) to your browser for it to be able to send message to your local server.
