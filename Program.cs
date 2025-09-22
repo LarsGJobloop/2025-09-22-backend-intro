@@ -1,22 +1,28 @@
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-app.MapPost("/", (string body) =>
+app.MapGet("/greeting", (string name) =>
 {
-  return "Was called with Method: POST; Path: /";
+  return $"Greeting {name}";
 });
 
-app.MapGet("/", () =>
+app.MapPost("/posts/{postNumber}", (int postNumber) =>
 {
-  return "Was called with Method: GET; Path: /";
+  return $"Was called with Method: POST; Path: /; PostNumber: {postNumber}";
 });
 
-app.MapPut("/", () =>
+app.MapGet("/posts", () =>
+{
+  var randomNumber = new Random().Next();
+  return $"Was called with Method: GET; Path: /; Random Number {randomNumber}";
+});
+
+app.MapPut("/posts", () =>
 {
   return "Was called with Method: PUT; Path: /";
 });
 
-app.MapDelete("/", () =>
+app.MapDelete("/posts", () =>
 {
   return "Was called with Method: DELETE; Path: /";
 });
