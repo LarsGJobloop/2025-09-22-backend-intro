@@ -10,7 +10,7 @@
   dotnet --help
   ```
 
--- Get Version
+- Get Version
 
   ```sh
   dotnet --version
