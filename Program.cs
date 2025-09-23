@@ -1,30 +1,17 @@
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-app.MapGet("/greeting", (string name) =>
+// Read all todoes
+app.MapGet("/todo", () =>
 {
-  return $"Greeting {name}";
+  return "Returning all Todos!";
 });
 
-app.MapPost("/posts/{postNumber}", (int postNumber) =>
+// Create a new todo
+app.MapPost("/todo", () =>
 {
-  return $"Was called with Method: POST; Path: /; PostNumber: {postNumber}";
+  return "Creating new Todo!";
 });
 
-app.MapGet("/posts", () =>
-{
-  var randomNumber = new Random().Next();
-  return $"Was called with Method: GET; Path: /; Random Number {randomNumber}";
-});
-
-app.MapPut("/posts", () =>
-{
-  return "Was called with Method: PUT; Path: /";
-});
-
-app.MapDelete("/posts", () =>
-{
-  return "Was called with Method: DELETE; Path: /";
-});
 
 app.Run();
