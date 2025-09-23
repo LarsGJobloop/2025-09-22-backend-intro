@@ -10,7 +10,9 @@ app.MapGet("/todo", () =>
 // Create a new todo
 app.MapPost("/todo", () =>
 {
-  return "Creating new Todo!";
+  var newTodoItem = new TodoItem("This is a task", DateTime.Today);
+
+  return newTodoItem;
 });
 
 
