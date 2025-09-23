@@ -3,6 +3,7 @@ using System.IO.Compression;
 class TodoItem
 {
   // Properties / Egenskaper
+  public Guid Id { get; }
   public string Description { get; set; }
   public bool IsComplete { get; set; }
   public DateTime Deadline { get; set; }
@@ -13,6 +14,7 @@ class TodoItem
   {
     IsComplete = false;
     CreatedAt = DateTime.Now;
+    Id = Guid.NewGuid();
 
     // We can setup rules for what's allowed here
     if (description.Length < 3 && description.Length < 200)
