@@ -19,5 +19,15 @@ app.MapPost("/todo", (TodoItemCreateInfo createInfo) =>
   return newTodoItem;
 });
 
+app.MapDelete("/todo/{todoId}", (string todoId) =>
+{
+  var foundTodo = todoList.TodoItems
+    .Find(todo => todo.Id.ToString() == todoId);
+
+  todoList.TodoItems.Remove(foundTodo);
+
+  return foundTodo;
+});
+
 
 app.Run();
