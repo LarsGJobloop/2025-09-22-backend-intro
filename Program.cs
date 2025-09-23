@@ -6,28 +6,20 @@ var todoList = new TodoList();
 // Read all todoes
 app.MapGet("/todo", () =>
 {
-  return todoList.TodoItems;
+  return todoList.GetAllTodoes();
 });
 
 // Create a new todo
 app.MapPost("/todo", (TodoItemCreateInfo createInfo) =>
 {
-  var newTodoItem = new TodoItem(createInfo.Description, createInfo.Deadline);
-
-  todoList.TodoItems.Add(newTodoItem);
+  var newTodoItem = todoList.CreateNewTodo(createInfo);
 
   return newTodoItem;
 });
 
 app.MapDelete("/todo/{todoId}", (string todoId) =>
 {
-  var foundTodo = todoList.TodoItems
-    .Find(todo => todo.Id.ToString() == todoId);
-
-  todoList.TodoItems.Remove(foundTodo);
-
-  return foundTodo;
+  todoList.DeleteTodo(todoId);
 });
-
 
 app.Run();
