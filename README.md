@@ -39,6 +39,8 @@
 ## References
 
 - [.NET SDK installation](https://dotnet.microsoft.com/en-us/download)
+- [HTTP Request Methods List](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods)
+- [HTTP Response Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status)
 
 ### HTTP Clients
 
