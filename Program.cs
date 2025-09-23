@@ -8,9 +8,9 @@ app.MapGet("/todo", () =>
 });
 
 // Create a new todo
-app.MapPost("/todo", () =>
+app.MapPost("/todo", (TodoItemCreateInfo createInfo) =>
 {
-  var newTodoItem = new TodoItem("This is a task", DateTime.Today);
+  var newTodoItem = new TodoItem(createInfo.Description, createInfo.Deadline);
 
   return newTodoItem;
 });
