@@ -15,6 +15,10 @@ builder.Services.AddSingleton<TodoList>();
 
 var app = builder.Build();
 
+// Server static files
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
 // Router definitions (Mappings)
 
 // Read all todoes
