@@ -1,12 +1,17 @@
 class FileStorageService
 {
+  private string path = "store.json";
+
   public bool Save(string content)
   {
-    return false;
+    File.WriteAllText(path, content);
+
+    return true;
   }
 
   public string? Load()
   {
-    return null;
+    var fileContent = File.ReadAllText(path);
+    return fileContent;
   }
 }
