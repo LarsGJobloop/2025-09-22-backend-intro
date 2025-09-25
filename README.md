@@ -4,6 +4,10 @@
 
 ![Introduction](/documentation/backend-introduction.excalidraw.png)
 
+### Client Server Architecture
+
+![Client Server Architecture](/documentation/client-server-architecture.excalidraw.png)
+
 ### The pieces
 
 ![The pieces](/documentation/backend-the-pieces.excalidraw.png)
