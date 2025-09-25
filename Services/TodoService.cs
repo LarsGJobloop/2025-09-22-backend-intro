@@ -1,34 +1,80 @@
+using System.Text.Json;
+
 class TodoList
 {
   // Properties
-  public List<TodoItem> TodoItems;
+  public FileStorageService fileStore;
 
   // How to create a new instance
-  public TodoList()
+  public TodoList(FileStorageService fileStorageService)
   {
-    TodoItems = new List<TodoItem>();
+    fileStore = fileStorageService;
   }
 
   // Methods, what we can do with this thing
   public List<TodoItem> GetAllTodoes()
   {
-    return TodoItems;
+    return LoadTodoesFromStorage();
   }
 
   public TodoItem CreateNewTodo(TodoItemCreateInfo createInfo)
   {
     var newTodoItem = new TodoItem(createInfo.Description, createInfo.Deadline);
 
-    TodoItems.Add(newTodoItem);
+    // First load existing todoes
+    var todoItems = LoadTodoesFromStorage();
+
+    // Add the new todo item to list
+    todoItems.Add(newTodoItem);
+
+    // Save new list
+    SaveTodoesToStorage(todoItems);
 
     return newTodoItem;
   }
 
   public void DeleteTodo(string todoId)
   {
-    var foundTodo = TodoItems
+    // First Load in data
+    var todoItems = LoadTodoesFromStorage();
+
+    // Modify the list
+    var foundTodo = todoItems
       .Find(todo => todo.Id.ToString() == todoId);
 
-    TodoItems.Remove(foundTodo);
+    if (foundTodo != null)
+    {
+      todoItems.Remove(foundTodo);
+    }
+
+    // Store the modified list
+    SaveTodoesToStorage(todoItems);
+  }
+
+  private List<TodoItem> LoadTodoesFromStorage()
+  {
+    // Read from file storage
+    var todoItemsString = fileStore.Load();
+
+    if (todoItemsString == null)
+    {
+      return new List<TodoItem>();
+    }
+
+    // Convert from string to list of TodoItems
+    var todoItems = JsonSerializer.Deserialize<List<TodoItem>>(todoItemsString);
+
+    if (todoItems == null)
+    {
+      return new List<TodoItem>();
+    }
+
+    return todoItems;
+  }
+
+  private bool SaveTodoesToStorage(List<TodoItem> todoItems)
+  {
+    var todoItemsString = JsonSerializer.Serialize(todoItems);
+    return fileStore.Save(todoItemsString);
   }
 }

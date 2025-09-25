@@ -1,4 +1,5 @@
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddSingleton<FileStorageService>();
 builder.Services.AddSingleton<TodoList>();
 
 var app = builder.Build();
