@@ -1,6 +1,12 @@
 ## Sketches
 
-![Sketches](/documentation/backend-introduction.excalidraw.png)
+### Introduction
+
+![Introduction](/documentation/backend-introduction.excalidraw.png)
+
+### The pieces
+
+![The pieces](/documentation/backend-the-pieces.excalidraw.png)
 
 ## Command shortlist (The most important)
 
