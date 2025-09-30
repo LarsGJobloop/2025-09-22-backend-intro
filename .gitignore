@@ -1,3 +1,6 @@
 # Ignore ephemeral .NET files
 bin
 obj
+
+# Ignore certifacate files
+*.pem
