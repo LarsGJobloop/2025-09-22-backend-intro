@@ -4,3 +4,4 @@ obj
 
 # Ignore certifacate files
 *.pem
+*.pfx
