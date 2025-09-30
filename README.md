@@ -46,6 +46,12 @@
   Ctrl + C
   ```
 
+- Generate local development certificates
+
+  ```sh
+  dotnet dev-certs https
+  ```
+
 ## References
 
 - [.NET SDK installation](https://dotnet.microsoft.com/en-us/download)
