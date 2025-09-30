@@ -1,4 +1,15 @@
+using System.Net;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.WebHost.ConfigureKestrel(serverOptions =>
+{
+  serverOptions.Listen(IPAddress.Loopback, 5001, listenOptions =>
+  {
+    listenOptions.UseHttps("cert.pfx", "yourpassword");
+  });
+});
+
 builder.Services.AddSingleton<FileStorageService>();
 builder.Services.AddSingleton<TodoList>();
 
